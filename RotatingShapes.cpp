@@ -5,13 +5,13 @@
 #include <raylib.h>
 #include <raymath.h>
 
-class RotatingRectangles
+class RotatingShapes
 {
 private:
     std::vector<Vector2> vectors;
 
 public:
-    RotatingRectangles(std::vector<Vector2> vectors)
+    RotatingShapes(std::vector<Vector2> vectors)
     {
         this->vectors = vectors;
         for (auto it = std::begin(this->vectors); it != std::end(this->vectors); ++it)
@@ -38,5 +38,5 @@ public:
             // DrawText(TextFormat("x: %08i", v.x), 200, 120, 20, GREEN);
         }
     }
-    ~RotatingRectangles() {}
+    ~RotatingShapes() {}
 };
