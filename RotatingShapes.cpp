@@ -34,7 +34,7 @@ public:
     {
         for (auto it = std::begin(this->vectors); it != std::end(this->vectors); ++it)
         {
-            DrawRectangleLines(it->x, it->y, 25, 25, RED);
+            DrawRectangleLines(it->x, it->y, 10, 10, RED);
             // DrawText(TextFormat("x: %08i", v.x), 200, 120, 20, GREEN);
         }
     }

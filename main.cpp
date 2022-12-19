@@ -50,15 +50,13 @@ int main()
     const int screenWidth = 800;
     const int screenHeight = 600;
 
-    std::vector<Vector2> vectors(100);
+    std::vector<Vector2> vectors(400);
     RotatingShapes rect(vectors);
 
     InitWindow(screenWidth, screenHeight, "HelloRaylib");
     SetTargetFPS(60);
 
-    while (WindowShouldClose() == false)
-    {
-
+    while (WindowShouldClose() == false){
         rect.update();
         BeginDrawing();
         ClearBackground(BLACK);
