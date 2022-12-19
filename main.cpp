@@ -21,9 +21,27 @@ double GetElapsed(Timer timer){
     return GetTime() - timer.startTime;
 }
 
+void timerExample(){
+    Timer myTimer = {0,5};
+    StartTimer(&myTimer, myTimer.lifeTime);
 
+    while (WindowShouldClose() == false){
 
+        // // if(TimerDone(myTimer)){
+        // //     for (auto it = begin (vectors); it != end (vectors); ++it) {
+        // //         it->x =  GetRandomValue(1, 800);
+        // //         it->y =  GetRandomValue(1, 600);
+        // //     }
+        // //     StartTimer(&myTimer, myTimer.lifeTime);
+        // // }
 
+       
+        BeginDrawing();
+        ClearBackground(BLACK);
+        EndDrawing();       
+    }
+
+}
 
 
 int main()
