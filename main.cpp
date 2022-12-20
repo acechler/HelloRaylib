@@ -46,25 +46,21 @@ void timerExample()
 
 int main()
 {
-    RotatingShapes::test();
+    //RotatingShapes::test();
+    const int screenWidth = 800;
+    const int screenHeight = 600;
 
-    // const int screenWidth = 800;
-    // const int screenHeight = 600;
+    InitWindow(screenWidth, screenHeight, "HelloRaylib");
+    SetTargetFPS(60);
 
-    // std::vector<Vector2> vectors(400);
-    // RotatingShapes rect(vectors);
+    while (WindowShouldClose() == false){
 
-    // InitWindow(screenWidth, screenHeight, "HelloRaylib");
-    // SetTargetFPS(60);
+        BeginDrawing();
+        ClearBackground(BLACK);
 
-    // while (WindowShouldClose() == false){
-    //     rect.update();
-    //     BeginDrawing();
-    //     ClearBackground(BLACK);
-    //     rect.draw();
-    //     EndDrawing();
-    // }
+        EndDrawing();
+    }
 
-    // CloseWindow();
+    CloseWindow();
     return 0;
 }

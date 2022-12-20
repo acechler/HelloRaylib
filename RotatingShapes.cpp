@@ -40,9 +40,9 @@ public:
     }
 
 
-    static void test(){
-        const int screenWidth = 800;
-        const int screenHeight = 600;
+    static void test(const int screenWidth = 800, const int screenHeight = 600){
+        //const int screenWidth = 800;
+        //const int screenHeight = 600;
 
         std::vector<Vector2> vectors(400);
         RotatingShapes rect(vectors);
