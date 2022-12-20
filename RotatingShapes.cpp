@@ -38,5 +38,31 @@ public:
             // DrawText(TextFormat("x: %08i", v.x), 200, 120, 20, GREEN);
         }
     }
+
+
+    static void test(){
+        const int screenWidth = 800;
+        const int screenHeight = 600;
+
+        std::vector<Vector2> vectors(400);
+        RotatingShapes rect(vectors);
+
+        InitWindow(screenWidth, screenHeight, "HelloRaylib");
+        SetTargetFPS(60);
+
+        while (WindowShouldClose() == false){
+            rect.update();
+            BeginDrawing();
+            ClearBackground(BLACK);
+            rect.draw();
+            EndDrawing();
+        }
+
+        CloseWindow();
+    }
+
+
     ~RotatingShapes() {}
 };
+
+
