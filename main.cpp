@@ -1,5 +1,5 @@
-#include "RotatingShapes.cpp"
-#include "RaylibTimer.cpp"
+#include "Examples\RotatingShapes.cpp"
+#include "Utilities\RaylibTimer.cpp"
 
 
 int main()

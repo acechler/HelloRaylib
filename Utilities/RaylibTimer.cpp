@@ -27,6 +27,9 @@ public:
         return GetTime() - this->startTime;
     }
 
+    /// @brief The procedure on how to use the RaylibTimer class. This creates a 5 second timer and displays the elapsed time onto the window.
+    /// @param screenWidth 
+    /// @param screenHeight 
     static void test(const int screenWidth = 800, const int screenHeight = 600){
         RaylibTimer myTimer(0,5);
         myTimer.StartTimer();

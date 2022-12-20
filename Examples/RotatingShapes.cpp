@@ -39,7 +39,9 @@ public:
         }
     }
 
-
+    /// @brief This shows a vector of 400 rectangles on the screen. These rectangles rotate using trig functions.
+    /// @param screenWidth 
+    /// @param screenHeight 
     static void test(const int screenWidth = 800, const int screenHeight = 600){
 
         std::vector<Vector2> vectors(400);
