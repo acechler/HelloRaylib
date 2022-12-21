@@ -3,30 +3,7 @@
 #include "Utilities\RaylibTimer.cpp"
 #include "Utilities\Graph.cpp"
 
-// typedef struct
-// {
-//     int src, dest;
-// } Edge;
 
-// class Graph
-// {
-
-// public:
-//     std::vector<std::vector<int>> adjacencyList;
-//     Graph(std::vector<Edge> const &edges, int size)
-//     {
-//         adjacencyList.resize(size);
-
-//         for (auto &edge : edges)
-//         {
-//             adjacencyList[edge.src].push_back(edge.dest);
-//             // uncomment the following code for undirected graph
-//             // adjacencyList[edge.dest].push_back(edge.src);
-//         }
-//     }
-
-//     ~Graph() {}
-// };
 
 struct Vector2 rngVector()
 {
@@ -60,10 +37,8 @@ void drawGraph(Graph const &graph, std::vector<Vector2> &locations, int size)
     }
 }
 
-int main()
-{
-    // RotatingShapes::test();
-    // RaylibTimer::test();
+
+void drawingGraphTest(){
     const int screenWidth = 800;
     const int screenHeight = 600;
     InitWindow(screenWidth, screenHeight, "HelloRaylib");
@@ -88,5 +63,37 @@ int main()
     }
 
     CloseWindow();
+}
+
+
+int main()
+{
+    RotatingShapes::test();
+    // RaylibTimer::test();
+
+    // const int screenWidth = 800;
+    // const int screenHeight = 600;
+    // InitWindow(screenWidth, screenHeight, "HelloRaylib");
+    // SetTargetFPS(60);
+    // std::vector<Edge> edges = {
+    //     {0, 1}, {0, 2}, {1, 2}, {2, 1}, {3, 2}, {3, 4}, {3, 6}, {4, 5}, {5, 6}};
+    // int totalEdges = edges.size() - 1;
+    // Graph graph(edges, totalEdges);
+    // std::vector<Vector2> locations(totalEdges);
+
+    // for (auto &location : locations)
+    // {
+    //     location = rngVector();
+    // }
+
+    // while (WindowShouldClose() == false)
+    // {
+    //     BeginDrawing();
+    //     ClearBackground(BLACK);
+    //     drawGraph(graph, locations, totalEdges);
+    //     EndDrawing();
+    // }
+
+    // CloseWindow();
     return 0;
 }
