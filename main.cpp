@@ -2,76 +2,77 @@
 #include "Examples\RotatingShapes.cpp"
 #include "Utilities\RaylibTimer.cpp"
 
-typedef struct{
+typedef struct
+{
     int src, dest;
 } Edge;
-
-
 
 class Graph
 {
 
 public:
     std::vector<std::vector<int>> adjacencyList;
-    Graph(std::vector<Edge> const &edges, int size) {
+    Graph(std::vector<Edge> const &edges, int size)
+    {
         adjacencyList.resize(size);
 
-        for(auto &edge:edges){
+        for (auto &edge : edges)
+        {
             adjacencyList[edge.src].push_back(edge.dest);
             // uncomment the following code for undirected graph
             // adjacencyList[edge.dest].push_back(edge.src);
         }
     }
 
-    std::vector<std::vector<int>> getList(){
-        return this->adjacencyList;
-    }
-
     ~Graph() {}
 };
 
-void drawGraph(Graph const &graph, int size){
 
-    std::vector<Vector2> locations(size);
+struct Vector2 rngVector(){
 
-    for(auto& location: locations){
-        location.x = GetRandomValue(1,GetScreenWidth());
-        location.y = GetRandomValue(1,GetScreenHeight());
-    }
+    struct Vector2 localVector;
+    localVector.x = GetRandomValue(1, GetScreenWidth());
+    localVector.y = GetRandomValue(1, GetScreenHeight());
+    return localVector;
+}
+
+
+// This seems to be on the right track -> https://stackoverflow.com/questions/15678823/passing-vector-of-struct-to-function
+void drawGraph(Graph const &graph, std::vector<Vector2> &locations, int size){
+
+    const Vector2 RECT_SIZE{32,32};
     for(int i = 0; i < size; ++i){
-        DrawRectangleV(locations[i],{32,32},WHITE);
+        DrawRectangleV(locations.at(i), RECT_SIZE, WHITE);
         for(int v: graph.adjacencyList[i]){
-            DrawLineV(locations[i],locations[v],GREEN);
+            DrawLineV(locations.at(i), locations.at(v), RED);
         }
- 
     }
-
-        
 }
 
 int main()
 {
-    //RotatingShapes::test();
-    //RaylibTimer::test();
+    // RotatingShapes::test();
+    // RaylibTimer::test();
     const int screenWidth = 800;
     const int screenHeight = 600;
+    InitWindow(screenWidth, screenHeight, "HelloRaylib");
+    SetTargetFPS(60);
     std::vector<Edge> edges = {
         {0, 1}, {1, 2}, {2, 0}, {2, 1}, {3, 2}, {4, 5}, {5, 4}
     };
     int totalEdges = edges.size() - 1;
-    Graph graph(edges,totalEdges);
+    Graph graph(edges, totalEdges);
+    std::vector<Vector2> locations(totalEdges);
     
-    InitWindow(screenWidth, screenHeight, "HelloRaylib");
-    SetTargetFPS(60);
+    for (auto &location : locations){
+        location = rngVector();
+    }
+
 
     while (WindowShouldClose() == false){
-
         BeginDrawing();
         ClearBackground(BLACK);
-        
-        drawGraph(graph, totalEdges);
-        
-        
+        drawGraph(graph, locations, totalEdges);
         EndDrawing();
     }
 
