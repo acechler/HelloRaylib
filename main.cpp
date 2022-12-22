@@ -2,7 +2,7 @@
 #include "Examples\RotatingShapes.cpp"
 #include "Utilities\RaylibTimer.cpp"
 #include "Utilities\Graph.cpp"
-
+#include "MenuExample\StateManager.h"
 
 
 struct Vector2 rngVector()
@@ -65,10 +65,31 @@ void drawingGraphTest(){
     CloseWindow();
 }
 
+void MenuExampleTest(){
+    //Set Up Window, initialize any App-wide features/libraries/etc
+    InitWindow(screenWidth, screenHeight, "State Stack Test");
+    SetTargetFPS(targetFPS);
 
+    //Initialize the StateManager.
+    std::unique_ptr<StateManager> state_manager = std::make_unique<StateManager>();
+
+    //Run the GameLoop
+    while (!WindowShouldClose())
+    {
+        state_manager->HandleInput();
+        state_manager->Update();
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+        state_manager->Render();
+        EndDrawing();
+    }
+    CloseWindow();
+}
 int main()
 {
-    RotatingShapes::test();
+
+    MenuExampleTest();
+    // RotatingShapes::test();
     // RaylibTimer::test();
 
     // const int screenWidth = 800;
